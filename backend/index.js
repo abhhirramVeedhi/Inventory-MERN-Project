@@ -11,7 +11,7 @@ const cors = require('cors')
 app.use(cors(
   {
     origin: ["https://inventory-mern-project-lu4g.vercel.app/"],
-    methods: ["Get","POST","PATCH","DELETE","PUT"],
+    methods: ["Get","POST","PATCH","DELETE","PUT", "FETCH"],
     credentials: true,
 }
 ));
