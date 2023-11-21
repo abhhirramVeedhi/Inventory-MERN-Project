@@ -10,7 +10,7 @@ const cors = require('cors')
 
 app.use(cors(
   {
-    origin: ["http://localhost:5173"],
+    origin: ["https://inventory-mern-project-lu4g.vercel.app/"],
     methods: ["Get","POST","PATCH","DELETE","PUT"],
     credentials: true,
 }
@@ -18,7 +18,7 @@ app.use(cors(
 app.use(express.json());
 app.use(cookieParser());
 
-// mongoose.connect('mongodb://127.0.0.1:27017/MERNPROJECT'); 
+
 mongoose.connect('mongodb+srv://merninventory:1234@cluster0.crecm1z.mongodb.net/Inventory')
 const varifyUser =(req,res,next) =>{
     const token =req.cookies.token;
