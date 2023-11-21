@@ -61,7 +61,7 @@ const UploadProduct = () => {
     };
     console.log(gadgets);
 
-    fetch("http://localhost:4002/upload-product", {
+    fetch("https://inventory-mern-project.vercel.app/upload-product", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
