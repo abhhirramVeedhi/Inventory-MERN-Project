@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from 'react-router-dom';
-import DashboardLayout from '../Dashboard/DashboardLayout';
+import DashboardLayout from '../dashboard/DashboardLayout';
 
 
 const PrivateRoute = () => 
