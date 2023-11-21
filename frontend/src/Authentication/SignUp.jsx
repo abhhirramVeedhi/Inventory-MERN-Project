@@ -14,7 +14,7 @@ function SignUp ()  {
     const [password,setPassword] =useState();
     const handleSubmit =(e) =>{
         e.preventDefault()
-        axios.post('http://localhost:4002/register',{name,email,password})
+        axios.post('https://inventory-mern-project.vercel.app/register',{name,email,password})
         .then(res =>{
             navigate('/login')
             
