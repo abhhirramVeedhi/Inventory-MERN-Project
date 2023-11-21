@@ -15,7 +15,7 @@ app.get("/",(req,res)=>{
 });
 
 app.use(cors({
-  origin: "https://inventory-mern-project-lu4g.vercel.app/",
+  origin: "https://inventory-mern-project-lu4g.vercel.app",
   methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "FETCH"],
   credentials: true,
 }));
