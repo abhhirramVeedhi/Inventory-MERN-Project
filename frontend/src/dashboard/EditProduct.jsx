@@ -65,7 +65,7 @@ const EditProduct = () => {
     };
     // console.log(gadgets);
     // update product details
-    fetch(`http://localhost:4002/update-product/${id}`, {
+    fetch(`https://inventory-mern-project.vercel.app/update-product/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
