@@ -6,7 +6,7 @@ const AdminProduct = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4002/view-product")
+        fetch("https://inventory-mern-project.vercel.app/view-product")
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
