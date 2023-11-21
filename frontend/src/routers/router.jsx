@@ -29,6 +29,8 @@ import SignUp from "../Authentication/SignUp";
 import Login from "../Authentication/Login";
 import LogOut from "../Authentication/LogOut";
 import UserPrivateRoute from "../Authentication/UserPrivateRoute";
+
+
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
@@ -102,8 +104,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/dashboard",
-    element:
-      <UDashboardLayout />,
+    element:<UserPrivateRoute>
+      <UDashboardLayout />
+    </UserPrivateRoute>,
     
     children: [
       {
