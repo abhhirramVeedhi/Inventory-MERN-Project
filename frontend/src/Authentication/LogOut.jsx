@@ -77,23 +77,17 @@ function LogOut() {
     const [isLogoutHovered, setIsLogoutHovered] = useState(false);
 
     const Logout = async () => {
-        try {
-            const response = await fetch('https://inventory-mern-project.vercel.app/logout', {
-                method: 'POST',
-                credentials: 'include', // Include credentials (cookies) in the request
-            });
+    try {
+        const response = await fetch('https://your-backend-domain/logout', {
+            method: 'POST',
+            credentials: 'include',
+        });
 
-            if (response.ok) {
-                document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                navigate("/login");
-            } else {
-                // Handle error, e.g., display an error message
-                console.error('Logout failed:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Logout failed:', error.message);
-        }
-    };
+        // ... rest of the code
+    } catch (error) {
+        console.error('Logout failed:', error.message);
+    }
+};
 
     const containerStyle = {
         backgroundImage: `url(${LogoutImage})`,
