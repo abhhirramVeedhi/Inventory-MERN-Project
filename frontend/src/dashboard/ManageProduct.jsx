@@ -70,14 +70,14 @@ const ManageProduct = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4002/view-product")
+    fetch("https://inventory-mern-project.vercel.app/view-product")
       .then((res) => res.json())
       .then(data => setAllProducts(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   const handleDel = (id) => {
-    fetch(`http://localhost:4002/delete-product/${id}`, {
+    fetch(`https://inventory-mern-project.vercel.app/delete-product/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())
