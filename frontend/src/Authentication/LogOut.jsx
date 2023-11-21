@@ -9,7 +9,7 @@ function LogOut() {
 
     const Logout = () => {
         window.localStorage.removeItem("isLoggedIn");
-        navigate(`https://inventory-mern-project-lu4g.vercel.app/`);
+        navigate('/');
     };
 
     
