@@ -87,7 +87,7 @@ function LogOut() {
 
     const Logout = () => {
         window.localStorage.removeItem("isLoggedIn");
-        navigate('/');
+        navigate(' ');
     };
 
     
