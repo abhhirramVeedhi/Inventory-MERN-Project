@@ -98,6 +98,10 @@ app.post('/login', (req,res)=>{
 
 app.post('/logout', (req, res) => {
     res.clearCookie('token');
+    res.setHeader('Access-Control-Allow-Origin', 'https://inventory-mern-project-lu4g.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.json({ message: 'Logout successful' });
 });
 
