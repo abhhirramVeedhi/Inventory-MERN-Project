@@ -1,3 +1,73 @@
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import LogoutImage from '../assets/Logout.jpg';
+
+// function LogOut() {
+//     const navigate = useNavigate();
+//     const [isLogoutHovered, setIsLogoutHovered] = useState(false);
+//     const [isDashboardHovered, setIsDashboardHovered] = useState(false);
+
+//     const Logout = () => {
+//         window.localStorage.removeItem("isLoggedIn");
+//         navigate('/');
+//     };
+
+    
+
+//     const containerStyle = {
+//         backgroundImage: `url(${LogoutImage})`,
+//         backgroundSize: 'cover',
+//         backgroundPosition: 'center',
+//         minHeight: '100vh',
+//         display: 'flex',
+//         flexDirection: 'column',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         padding: '20px',
+//         color: 'white',
+//         textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+//     };
+
+//     const buttonStyle = {
+//         borderRadius: '5px',
+//         padding: '10px 20px',
+//         fontSize: '20px',
+//         border: 'none',
+//         outline: 'none',
+//         cursor: 'pointer',
+//         transition: 'background-color 0.5s ease, color 0.5s ease',
+//         margin: '5px',
+//     };
+
+//     const logoutButtonStyle = {
+//         ...buttonStyle,
+//         backgroundColor: isLogoutHovered ? '#de0e3a' : '#89c5fd',
+//         color: isLogoutHovered ? 'white' : 'black',
+//     };
+
+    
+//     return (
+//         <div style={containerStyle}>
+//             <h2>Press the button to log out</h2>
+//             <button 
+//                 onClick={Logout}
+//                 style={logoutButtonStyle}
+//                 onMouseEnter={() => setIsLogoutHovered(true)}
+//                 onMouseLeave={() => setIsLogoutHovered(false)}
+//             >
+//                 Logout
+//             </button>
+
+//             <br/>
+
+            
+//         </div>
+//     );
+// }
+
+// export default LogOut;
+
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoutImage from '../assets/Logout.jpg';
@@ -5,14 +75,25 @@ import LogoutImage from '../assets/Logout.jpg';
 function LogOut() {
     const navigate = useNavigate();
     const [isLogoutHovered, setIsLogoutHovered] = useState(false);
-    const [isDashboardHovered, setIsDashboardHovered] = useState(false);
 
-    const Logout = () => {
-        window.localStorage.removeItem("isLoggedIn");
-        navigate('/');
+    const Logout = async () => {
+        try {
+            const response = await fetch('https://inventory-mern-project.vercel.app/logout', {
+                method: 'POST',
+                credentials: 'include', // Include credentials (cookies) in the request
+            });
+
+            if (response.ok) {
+                document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                navigate("/login");
+            } else {
+                // Handle error, e.g., display an error message
+                console.error('Logout failed:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Logout failed:', error.message);
+        }
     };
-
-    
 
     const containerStyle = {
         backgroundImage: `url(${LogoutImage})`,
@@ -28,7 +109,7 @@ function LogOut() {
         textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
     };
 
-    const buttonStyle = {
+    const logoutButtonStyle = {
         borderRadius: '5px',
         padding: '10px 20px',
         fontSize: '20px',
@@ -37,15 +118,10 @@ function LogOut() {
         cursor: 'pointer',
         transition: 'background-color 0.5s ease, color 0.5s ease',
         margin: '5px',
-    };
-
-    const logoutButtonStyle = {
-        ...buttonStyle,
         backgroundColor: isLogoutHovered ? '#de0e3a' : '#89c5fd',
         color: isLogoutHovered ? 'white' : 'black',
     };
 
-    
     return (
         <div style={containerStyle}>
             <h2>Press the button to log out</h2>
@@ -57,18 +133,11 @@ function LogOut() {
             >
                 Logout
             </button>
-
-            <br/>
-
-            
         </div>
     );
 }
 
 export default LogOut;
-
-
-
 
 // import { useState } from "react";
 // import { Link } from "react-router-dom"; // Import Link from react-router-dom
