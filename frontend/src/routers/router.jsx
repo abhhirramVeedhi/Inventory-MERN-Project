@@ -22,8 +22,8 @@ import UploadProduct from "../dashboard/UploadProduct";
 
 
 import PrivateRoute from "../Authentication/PrivateRoute";
-import DashboardLayout from "../Dashboard/DashboardLayout";
-import AdminProduct from "../Dashboard/AdminProducts";
+import DashboardLayout from "../dashboard/DashboardLayout";
+import AdminProduct from "../dashboard/AdminProducts";
 import AdminSingleProduct from "../dashboard/AdminSingleProduct";
 import SignUp from "../Authentication/SignUp";
 import Login from "../Authentication/Login";
