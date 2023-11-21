@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const UViewproduct = () => {
     const [allProducts, setAllProducts] =useState([]);
     useEffect(()=>{
-      fetch("http://localhost:4002/view-product").then(res => res.json()).then(data =>setAllProducts(data));
+      fetch("https://inventory-mern-project.vercel.app/view-product").then(res => res.json()).then(data =>setAllProducts(data));
     },[])
 
     return (
