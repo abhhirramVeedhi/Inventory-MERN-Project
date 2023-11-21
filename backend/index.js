@@ -96,6 +96,11 @@ app.post('/login', (req,res)=>{
 
 });
 
+app.post('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.json({ message: 'Logout successful' });
+});
+
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://merninventory:1234@cluster0.crecm1z.mongodb.net/?retryWrites=true&w=majority";
