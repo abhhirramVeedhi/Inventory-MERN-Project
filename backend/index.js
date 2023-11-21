@@ -125,11 +125,14 @@ async function run() {
     })
 
     //get
-    app.get("/view-product",async(req,res)=>{
-        const gadgets =  store.find();
-        const result = await gadgets.toArray();
-        res.send(result);
-    })
+     app.get("/view-product", async (req, res) => {
+      const gadgets = await store.find().toArray();
+      res.setHeader('Access-Control-Allow-Origin', 'https://inventory-mern-project-lu4g.vercel.app');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      res.json(gadgets);
+    });
 
     //update
     app.patch("/update-product/:id",async(req,res)=>{
