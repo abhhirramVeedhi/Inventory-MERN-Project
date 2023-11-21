@@ -8,6 +8,12 @@ const app = express()
 const port = process.env.PORT || 4002
 const cors = require('cors')
 
+app.get("/",(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credentials",true)
+  res.send("API is Running...");
+
+});
+
 app.use(cors(
   {
     origin: ["https://inventory-mern-project-lu4g.vercel.app/"],
