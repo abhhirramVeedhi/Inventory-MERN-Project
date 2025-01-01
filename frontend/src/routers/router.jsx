@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: "/searchById/:id",
         element: <SingleProduct />,
-        loader: ({ params }) => fetch(`http://localhost:4002/searchById/${params.id}`)
+        loader: ({ params }) => fetch(`https://inventory-mern-project-lu4g.vercel.app/searchById/${params.id}`)
       }
     ]
   },
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/single-product/:id",
         element: <AdminSingleProduct />,
-        loader: ({ params }) => fetch(`http://localhost:4002/searchById/${params.id}`)
+        loader: ({ params }) => fetch(`https://inventory-mern-project-lu4g.vercel.app/searchById/${params.id}`)
       }
 
     ]
