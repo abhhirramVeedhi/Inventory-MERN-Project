@@ -87,7 +87,7 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit/:id",
         element: <EditProduct />,
-        loader: ({ params }) => fetch(`http://localhost:5173/admin/dashboard/edit/${params.id}`)
+        loader: ({ params }) => fetch(`https://inventory-mern-project-lu4g.vercel.app/admin/dashboard/edit/${params.id}`)
       },
       {
         path: "/admin/dashboard/view-products",
